@@ -34,7 +34,7 @@ class Activity2 : AppCompatActivity(), View.OnClickListener {
                 } else if(height.toInt() > 1000) {
                     Toast.makeText(this, "Height too large.", Toast.LENGTH_SHORT).show()
                 } else {
-                    Preferences.setValues(width.toInt(), height.toInt())
+                    /*Preferences.setValues(width.toInt(), height.toInt())
                     changebutton.apply {
                         val params = this.layoutParams
                         updateLayoutParams {
@@ -48,7 +48,7 @@ class Activity2 : AppCompatActivity(), View.OnClickListener {
                         setBackgroundColor(
                             Color.argb(1.00.toFloat(),
                                 tabbarcolor?.red?.toFloat()!!, tabbarcolor.green.toFloat(), tabbarcolor.blue.toFloat()))
-                    }
+                    }*/
                 }
             }
             /* BUTTON COLOR:
