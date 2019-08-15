@@ -12,7 +12,9 @@ interface AppPreferenceApiService {
     fun getAppUIPreferences(): retrofit2.Call<Any>
 
     companion object {
-        operator fun invoke(): AppPreferenceApiService {
+        operator fun invoke(
+            connectivityInterceptor: ConnectivityInterceptor
+        ): AppPreferenceApiService {
             val okHttpClient = OkHttpClient.Builder()
                 .addInterceptor { chain ->
                     val original = chain.request()
@@ -21,7 +23,8 @@ interface AppPreferenceApiService {
 
                     val request = requestBuilder.build()
                     chain.proceed(request)
-                }.build()
+                }.addInterceptor(connectivityInterceptor)
+                .build()
 
             val retrofitInstance: AppPreferenceApiService by lazy {
                 val retrofit = Retrofit.Builder()
