@@ -1,4 +1,4 @@
-package com.example.samplebrandingapp.network.apicalls
+package com.example.applibrary.apicalls
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

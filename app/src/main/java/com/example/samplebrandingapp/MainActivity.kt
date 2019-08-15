@@ -1,20 +1,12 @@
 package com.example.samplebrandingapp
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.updateLayoutParams
-import com.example.samplebrandingapp.network.apicalls.RetrofitClientInstance
-import com.example.samplebrandingapp.network.response.UIConfigResponse
-import kotlinx.android.synthetic.main.activity_2.*
+import com.example.applibrary.Preferences
 import kotlinx.android.synthetic.main.activity_main.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,43 +14,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setTheme(appTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        RetrofitClientInstance.retrofitInstance.getAppUIPreferences()
-            .enqueue(object: Callback<Any> {
-                override fun onFailure(call: Call<Any>, t: Throwable) {
-                    Toast.makeText(applicationContext, "Something wrong", Toast.LENGTH_SHORT).show()
-                }
-                override fun onResponse(call: Call<Any>, response: Response<Any>) {
-                    if(response.isSuccessful) {
-                        val body = response.body()
-                        Preferences.jsonString = body?.toString()
-                        /*Preferences.heading1TextColor = body?.heading1TextColor
-                        Preferences.heading4TextColor = body?.heading4TextColor
-                        Preferences.navigationBarColor = body?.navigationBarColor
-                        Preferences.normalTextColor = body?.normalTextColor
-                        Preferences.primaryBackgroundColor = body?.primaryBackgroundColor
-                        Preferences.smallTitleTextColor = body?.smallTitleTextColor
-                        Preferences.tabbarColor = body?.tabbarColor
-                        Preferences.tintColor = body?.tintColor
-                        Preferences.titleTextColor = body?.titleTextColor*/
-                    }
-                }
-            })
-        /*RetrofitClientInstance.retrofitInstance.getAppsUIPreferences()
-            .enqueue(object: Callback<String> {
-                override fun onFailure(call: Call<String>, t: Throwable) {
-                    Toast.makeText(applicationContext, "Something wrong", Toast.LENGTH_SHORT).show()
-                }
-
-                override fun onResponse(call: Call<String>, response: Response<String>) {
-                    if(response.isSuccessful) {
-                        println(":::::::::::::::::::::::")
-                        println(response.body().toString())
-                        println(":::::::::::::::::::::::")
-                    }
-                }
-
-
-            })*/
+        Preferences.storeJson(applicationContext)
     }
 
     override fun onClick(view: View?) {

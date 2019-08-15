@@ -1,20 +1,18 @@
 package com.example.samplebrandingapp
 
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
-import androidx.core.view.updateLayoutParams
-import com.example.applibrary.CustomButton
-import kotlinx.android.synthetic.main.activity_2.*
+import com.example.applibrary.Preferences
 
 class Activity2 : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         val appTheme = getThemeID()
         setTheme(appTheme)
+        Preferences.values?.forEach { (k, v) -> println("$k = $v") }
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_2)
     }
