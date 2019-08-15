@@ -1,8 +1,8 @@
-package com.example.applibrary
+package com.example.repository.data.db
 
 import android.content.Context
 import android.widget.Toast
-import com.example.applibrary.apicalls.RetrofitClientInstance
+import com.example.repository.data.network.RetrofitClientInstance
 import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback

@@ -6,7 +6,7 @@ import android.preference.PreferenceManager
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
-import com.example.applibrary.Preferences
+import com.example.repository.data.db.Preferences
 
 class Activity2 : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {

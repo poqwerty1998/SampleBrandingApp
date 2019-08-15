@@ -1,4 +1,4 @@
-package com.example.applibrary.apicalls
+package com.example.repository.data.network
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

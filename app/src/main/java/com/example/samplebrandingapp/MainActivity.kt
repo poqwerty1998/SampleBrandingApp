@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.applibrary.Preferences
+import com.example.repository.data.db.Preferences
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
