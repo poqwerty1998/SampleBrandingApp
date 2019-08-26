@@ -1,18 +1,27 @@
 package com.example.samplebrandingapp
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import com.example.repository.data.db.ColorPreference
 import com.example.repository.data.db.Preferences
+import com.google.gson.Gson
 
 class Activity2 : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         val appTheme = getThemeID()
         setTheme(appTheme)
-        Preferences.values?.forEach { (k, v) -> println("$k = $v") }
+        /*for(i in 0..Preferences.values?.keys?.size!!) {
+            val key = Preferences.values?.keys?.elementAt(i)
+            val colorString = Preferences.values?.get(Preferences.values?.keys?.elementAt(i)).toString()
+            val color = Gson().fromJson(colorString, ColorPreference::class.java)
+            val value = Color.argb(1.toFloat(), color.red.toFloat(), color.green.toFloat(), color.blue.toFloat())
+            Preferences.values?.put(key, value)
+        }*/
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_2)
     }

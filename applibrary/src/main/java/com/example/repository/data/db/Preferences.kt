@@ -1,6 +1,7 @@
 package com.example.repository.data.db
 
 import android.content.Context
+import android.graphics.Color
 import android.widget.Toast
 import com.example.repository.data.network.RetrofitClientInstance
 import com.google.gson.Gson
@@ -12,6 +13,7 @@ class Preferences {
     companion object {
         var jsonString: String? = null
         var values: HashMap<*,*>? = null
+        var color: Int = Color.BLACK
 
         fun storeJson(context: Context) {
             RetrofitClientInstance.retrofitInstance.getAppUIPreferences()
