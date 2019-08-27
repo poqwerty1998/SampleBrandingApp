@@ -14,6 +14,7 @@ class Preferences {
         var jsonString: String? = null
         var values: HashMap<*,*>? = null
         var color: Int = Color.BLACK
+        var color2: Int = Color.GRAY
 
         fun storeJson(context: Context) {
             RetrofitClientInstance.retrofitInstance.getAppUIPreferences()
